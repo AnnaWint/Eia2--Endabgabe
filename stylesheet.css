@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+div#settings {
+    position: absolute;
+    top: 30px;
+    width: 300px;
+    height: 680px;
+    padding: 30px;
+    border-color: black;
+    border: 10px;
+    border-left: 20x;
+    border-width: 3px;
+    border-style: solid;
+    background-color: white;
+    color: black;
+    background-image: linear-gradient(to bottom right, silver, white);
+}
+
+legend {
+    text-decoration: underline;
+}
+
+fieldset {
+    border: none;
+
+}
+
+
+div#list {
+    position: absolute;
+    margin-left: 400px;
+    top: 30px;
+    width: 300px;
+    height: 680px;
+    padding: 30px;
+    border-color: black;
+    border-width: 3px;
+    border-style: solid;
+    background-image: linear-gradient(to bottom right, silver, white);
+}
+
+div#canvas {
+    position: absolute;
+    padding: 30px;
+    right: 1%;
+    background-color: black;
+    top: 30px;
+    border-color: silver;
+    border-style: solid;
+    height: 680px;
+    width: 680px;
+}
+
+#save {
+    position: absolute;
+    top: 600px;
+    margin-left: 50%;
+    background-color: silver;
+    border: black;
+    border-style: solid;
+    font-size: 24px;
+    width: 30%;
+    height: 6%;
+    border-radius: 20%;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#save:active {
+    background-color: silver;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+   
+}
+
+
+
+
+
