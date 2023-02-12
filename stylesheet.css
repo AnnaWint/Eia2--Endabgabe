@@ -43,14 +43,13 @@ div#list {
 
 div#canvas {
     position: absolute;
-    padding: 30px;
     right: 1%;
     background-color: black;
     top: 30px;
     border-color: silver;
     border-style: solid;
-    height: 680px;
-    width: 680px;
+    height: 740px;
+    width: 740px;
 }
 
 #save {

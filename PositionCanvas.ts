@@ -19,36 +19,19 @@ namespace Firework {
 
 
         handlePosition(): void {
-            this.canvas = document.querySelector("canvas");
+            this.canvas = document.getElementById("canvas");
             this.canvas.addEventListener("mousedown", this.getPosition);
-
-
-
-
-
         }
 
-
-
         getPosition(_event: MouseEvent): void {
-            if (document.querySelector("canvas") == null) { }
-            else {
-                let oldPosition: HTMLElement = document.querySelector("canvas");
-                oldPosition.remove();
-            }
 
-
-            this.xPosition = _event.clientX;
-            this.yPosition = _event.clientY;
+            this.xPosition = _event.offsetX;
+            this.yPosition = _event.offsetY;
 
             console.log("x " + this.xPosition);
             console.log("y " + this.yPosition);
 
-
-
+            new Explosion().explode(FormData.information, this.xPosition, this.yPosition);
         }
-
-
     }
-
 }

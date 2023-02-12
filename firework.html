@@ -8,11 +8,14 @@
     <title>Firework</title>
     <link rel="stylesheet" href="stylesheet.css">
 
-
+    <script src="Explosion.js"></script>
     <script src="PositionCanvas.js"></script>
     <script src="Particle.js"></script>
     <script src="FormData.js"></script>
     <script src="Main.js"></script>
+    <script src="Triangle.js"></script>
+    <script src="Dots.js"></script>
+    <script src="Line.js"></script>
 </head>
 
 <body>
@@ -24,11 +27,11 @@
 
             <label for="Name">Name:</label>
 
-            <input type="text" placeholder="Name">
+            <input type="text" placeholder="Name" id="name">
 
         </fieldset>
         <br>
-        <legend>Partical:</legend>
+        <legend>Particle:</legend>
         <fieldset>
             <label for="color1">Color 1:</label>
             <input type="color" name="Color1" id="color1" value="#FF0000">
@@ -41,15 +44,13 @@
             <label for="formParticle">Form Particle:</label>
             <select name="formParticle" id="formParticle">
                 <option value="dots">Dots</option>
-                <option value="stars">Stars</option>
                 <option value="triangle">Triangle</option>
-                <option value="curve">Curve</option>
                 <option value="line">Line</option>
             </select>
             <br>
             <br>
             <label for="amountParticle">Amount Particle:</label>
-            <input name="amountParticle" type="range" min="100" max="200" id="amountParticle">
+            <input name="amountParticle" type="range" min="100" max="500" id="amountParticle">
             <br>
             <br>
             <label for="lifetimeParticle">Lifetime Particle:</label>
@@ -66,25 +67,22 @@
             <label for="radius">Small</label>
             <input type="radio" id="small" name="drone" value="small">
             <label for="radius">Medium</label>
-            <input type="radio" id="medium" name="drone" value="medium">
+            <input type="radio" id="medium" name="drone" value="medium" checked>
             <label for="radius">Large</label>
             <input type="radio" id="large" name="drone" value="large">
             <br>
-    
+
         </fieldset>
         <br>
         <br>
-        <button id="save">Save</button>
+        <button type="button" id="save">Save</button>
 
     </div>
     <br>
     <div id="list">
-        <legend>Saved Fireworks</legend>
-        <li></li>
     </div>
 
     <div id="canvas">
-        <canvas height="680px" width="680px"> </canvas>
     </div>
 
 

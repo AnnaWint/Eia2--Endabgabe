@@ -9,14 +9,23 @@ var Firework;
      */
     class FormData {
         static information;
+        constructor(_name, _color1, _color2, _formParticle, _amountParticle, _lifetimeParticle, _drone) {
+            this.name = _name ?? document.getElementById("name").value;
+            this.color1 = _color1 ?? document.getElementById("color1").value;
+            this.color2 = _color2 ?? document.getElementById("color2").value;
+            this.formParticle = _formParticle ?? document.getElementById("formParticle").value;
+            this.amountParticle = _amountParticle ?? parseInt(document.getElementById("amountParticle").value);
+            this.lifetimeParticle = _lifetimeParticle ?? parseInt(document.getElementById("lifetimeParticle").value);
+            this.drone = _drone ?? document.querySelector("input[name=drone]:checked").value;
+        }
         settings = document.querySelector("#settings");
-        name = document.getElementById("name").value;
-        color1 = document.getElementById("color1").value;
-        color2 = document.getElementById("color2").value;
-        formParticle = document.getElementById("formParticle").value;
-        amountParticle = document.getElementById("amountParticle").value;
-        lifetimeParticle = document.getElementById("lifetimeParticle").value;
-        drone = document.getElementById("medium").value;
+        name;
+        color1;
+        color2;
+        formParticle;
+        amountParticle;
+        lifetimeParticle;
+        drone;
     }
     Firework.FormData = FormData;
 })(Firework || (Firework = {}));

@@ -13,19 +13,15 @@ var Firework;
         xPosition;
         yPosition;
         handlePosition() {
-            this.canvas = document.querySelector("canvas");
+            this.canvas = document.getElementById("canvas");
             this.canvas.addEventListener("mousedown", this.getPosition);
         }
         getPosition(_event) {
-            if (document.querySelector("canvas") == null) { }
-            else {
-                let oldPosition = document.querySelector("canvas");
-                oldPosition.remove();
-            }
-            this.xPosition = _event.clientX;
-            this.yPosition = _event.clientY;
+            this.xPosition = _event.offsetX;
+            this.yPosition = _event.offsetY;
             console.log("x " + this.xPosition);
             console.log("y " + this.yPosition);
+            new Firework.Explosion().explode(Firework.FormData.information, this.xPosition, this.yPosition);
         }
     }
     Firework.PositionCanvas = PositionCanvas;
