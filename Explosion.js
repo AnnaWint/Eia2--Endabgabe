@@ -1,32 +1,38 @@
 var Firework;
 (function (Firework) {
+    /*
+      Aufgabe: <Endabgabe_Firework>
+      Name: <Anna Wintermantel>
+      Matrikel: <271140>
+      Datum: <>
+      Quellen:<>
+      */
     class Explosion {
+        static framesPerSecond = 10;
         initLifetime;
         allParticles;
         crc;
-        static draw(ThisRef, lifetime) {
-            if (document.getElementById("canvas").firstElementChild == ThisRef.crc.canvas) {
-                ThisRef.crc.fillStyle = "rgba(0, 0, 0, 0.5)";
-                ThisRef.crc.fillRect(0, 0, ThisRef.crc.canvas.width, ThisRef.crc.canvas.height);
+        static draw(thisRef, lifetime) {
+            if (document.getElementById("canvas").firstElementChild == thisRef.crc.canvas) {
+                thisRef.crc.fillStyle = "rgba(0, 0, 0, 0.5)";
+                thisRef.crc.fillRect(0, 0, thisRef.crc.canvas.width, thisRef.crc.canvas.height);
             }
             else {
-                ThisRef.crc.clearRect(0, 0, ThisRef.crc.canvas.width, ThisRef.crc.canvas.height);
+                thisRef.crc.clearRect(0, 0, thisRef.crc.canvas.width, thisRef.crc.canvas.height);
             }
-            ThisRef.crc.filter = "brightness(" + (((lifetime / ThisRef.initLifetime) * 100) + 50) + "%)";
-            console.log("Lifetime left" + lifetime);
+            thisRef.crc.filter = "brightness(" + (((lifetime / thisRef.initLifetime) * 100) + 50) + "%)";
             lifetime--;
             if (lifetime >= 0) {
-                ThisRef.allParticles.forEach(element => {
+                thisRef.allParticles.forEach(element => {
                     element.draw();
                 });
-                setTimeout(() => Explosion.draw(ThisRef, lifetime), 1 / Explosion.FramesPerSecond);
+                setTimeout(() => Explosion.draw(thisRef, lifetime), 1 / Explosion.framesPerSecond);
             }
             else {
-                document.getElementById("canvas").removeChild(ThisRef.crc.canvas);
+                document.getElementById("canvas").removeChild(thisRef.crc.canvas);
             }
         }
-        static FramesPerSecond = 10;
-        explode(SendFormData, x, y) {
+        explode(sendFormData, x, y) {
             if (!Firework.FormData.information) {
                 return;
             }
@@ -40,29 +46,28 @@ var Firework;
             document.getElementById("canvas").appendChild(newCanvas);
             this.allParticles = [];
             this.crc = newCanvas.getContext("2d");
-            for (let index = 0; index < SendFormData.amountParticle; index++) {
+            for (let index = 0; index < sendFormData.amountParticle; index++) {
                 let newElement;
-                switch (SendFormData.formParticle) {
+                switch (sendFormData.formParticle) {
                     case "dots": {
-                        newElement = new Firework.Dots(SendFormData.color1, SendFormData.color2, SendFormData.formParticle, this.crc, x, y, SendFormData.drone);
+                        newElement = new Firework.Dots(sendFormData.color1, sendFormData.color2, sendFormData.formParticle, this.crc, x, y, sendFormData.radiusActive);
                         break;
                     }
                     case "triangle": {
-                        newElement = new Firework.Triangle(SendFormData.color1, SendFormData.color2, SendFormData.formParticle, this.crc, x, y, SendFormData.drone);
+                        newElement = new Firework.Triangle(sendFormData.color1, sendFormData.color2, sendFormData.formParticle, this.crc, x, y, sendFormData.radiusActive);
                         break;
                     }
                     case "line": {
-                        newElement = new Firework.Line(SendFormData.color1, SendFormData.color2, SendFormData.formParticle, this.crc, x, y, SendFormData.drone);
+                        newElement = new Firework.Line(sendFormData.color1, sendFormData.color2, sendFormData.formParticle, this.crc, x, y, sendFormData.radiusActive);
                         break;
                     }
                     default: {
-                        console.log("unknown formtype " + SendFormData.formParticle);
+                        console.log("unknown formtype " + sendFormData.formParticle);
                     }
                 }
                 this.allParticles[index] = newElement;
             }
-            console.log("Amount" + SendFormData.amountParticle);
-            let lifetime = SendFormData.lifetimeParticle * Explosion.FramesPerSecond;
+            let lifetime = sendFormData.lifetimeParticle * Explosion.framesPerSecond;
             this.initLifetime = lifetime;
             Explosion.draw(this, lifetime);
         }

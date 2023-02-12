@@ -28,7 +28,6 @@ namespace Firework {
             this.xPosition = xStartPosition;
             this.yPosition = yStartPosition;
 
-            console.log(radius)
             let radiusFactor: number = 1;
             if (radius == "small") {
                 radiusFactor = 0.5;
@@ -37,28 +36,27 @@ namespace Firework {
                 radiusFactor = 2;
             }
 
-            this.xVector = this.normalVerteilungY() * (30 / Explosion.FramesPerSecond) * radiusFactor;
-            this.yVector = this.normalVerteilungY() * (30 / Explosion.FramesPerSecond) * radiusFactor;
+            this.xVector = this.getRandomNummber() * (30 / Explosion.framesPerSecond) * radiusFactor;
+            this.yVector = this.getRandomNummber() * (30 / Explosion.framesPerSecond) * radiusFactor;  
 
             this.gradient = this.crc2.createLinearGradient(100, 200, 250, 500);
             this.gradient.addColorStop(0, this.color1);
             this.gradient.addColorStop(1, this.color2);
         }
 
-        normalVerteilungY(): number {
-            let res = Math.random();
-            console.log(res);
-            res *= Math.round(Math.random()) ? 1 : -1;
-            return res;
+        getRandomNummber(): number {
+            let res: number = Math.random(); 
+            res *= Math.round(Math.random()) ? 1 : -1; 
+            return res; 
         }
 
         draw(): void {
-            this.xPosition += this.xVector;
+            this.xPosition += this.xVector; 
             this.yPosition += this.yVector;
 
             this.actualDraw();
         }
 
-        abstract actualDraw(): void;
+        abstract actualDraw(): void; 
     }
 }

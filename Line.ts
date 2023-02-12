@@ -1,4 +1,12 @@
-namespace Firework{
+namespace Firework {
+
+      /*
+        Aufgabe: <Endabgabe_Firework>
+        Name: <Anna Wintermantel>
+        Matrikel: <271140>
+        Datum: <>
+        Quellen:<>
+        */
 
      export class Line extends Particle {
          actualDraw(): void {

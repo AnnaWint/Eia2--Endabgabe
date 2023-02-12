@@ -19,8 +19,6 @@ var Firework;
         getPosition(_event) {
             this.xPosition = _event.offsetX;
             this.yPosition = _event.offsetY;
-            console.log("x " + this.xPosition);
-            console.log("y " + this.yPosition);
             new Firework.Explosion().explode(Firework.FormData.information, this.xPosition, this.yPosition);
         }
     }

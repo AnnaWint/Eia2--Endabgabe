@@ -1,5 +1,12 @@
 var Firework;
 (function (Firework) {
+    /*
+      Aufgabe: <Endabgabe_Firework>
+      Name: <Anna Wintermantel>
+      Matrikel: <271140>
+      Datum: <>
+      Quellen:<>
+      */
     class Dots extends Firework.Particle {
         actualDraw() {
             let radius = 2;

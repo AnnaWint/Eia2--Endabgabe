@@ -28,8 +28,7 @@ namespace Firework {
             this.xPosition = _event.offsetX;
             this.yPosition = _event.offsetY;
 
-            console.log("x " + this.xPosition);
-            console.log("y " + this.yPosition);
+            
 
             new Explosion().explode(FormData.information, this.xPosition, this.yPosition);
         }

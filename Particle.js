@@ -24,7 +24,6 @@ var Firework;
             this.form = _form;
             this.xPosition = xStartPosition;
             this.yPosition = yStartPosition;
-            console.log(radius);
             let radiusFactor = 1;
             if (radius == "small") {
                 radiusFactor = 0.5;
@@ -32,15 +31,14 @@ var Firework;
             else if (radius == "large") {
                 radiusFactor = 2;
             }
-            this.xVector = this.normalVerteilungY() * (30 / Firework.Explosion.FramesPerSecond) * radiusFactor;
-            this.yVector = this.normalVerteilungY() * (30 / Firework.Explosion.FramesPerSecond) * radiusFactor;
+            this.xVector = this.getRandomNummber() * (30 / Firework.Explosion.framesPerSecond) * radiusFactor;
+            this.yVector = this.getRandomNummber() * (30 / Firework.Explosion.framesPerSecond) * radiusFactor;
             this.gradient = this.crc2.createLinearGradient(100, 200, 250, 500);
             this.gradient.addColorStop(0, this.color1);
             this.gradient.addColorStop(1, this.color2);
         }
-        normalVerteilungY() {
+        getRandomNummber() {
             let res = Math.random();
-            console.log(res);
             res *= Math.round(Math.random()) ? 1 : -1;
             return res;
         }
